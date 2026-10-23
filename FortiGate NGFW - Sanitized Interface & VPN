@@ -1,0 +1,30 @@
+# ========================================================
+# FortiGate NGFW - Sanitized Interface & VPN Template
+# ========================================================
+
+# 1. Dual WAN Interfaces
+config system interface
+    edit "wan1"
+        set alias "Primary_ISP"
+        set mode static
+        set ip 198.51.100.10 255.255.255.252
+        set role wan
+    next
+    edit "wan2"
+        set alias "Backup_ISP"
+        set mode static
+        set ip 203.0.113.42 255.255.255.248
+        set role wan
+    next
+end
+
+# 2. Site-to-Site IPsec VPN to Remote Office
+config vpn ipsec phase1-interface
+    edit "IPSEC-VPN-REMOTE"
+        set interface "wan1"
+        set peertype any
+        set proposal aes256-sha256
+        set dhgrp 14
+        set remote-gw 198.51.100.50
+    next
+end
