@@ -6,23 +6,23 @@
 configure terminal
 
 ! Management Interface
-interface vlan 1
- ip address 10.10.100.10 255.255.255.0
+interface vlan a
+ ip address 10.x.x.x 255.255.255.0
 exit
 
 ! Workstation Ports (VLAN 10)
 interface range ethernet 1/0/2 - 24
  switchport mode access
- switchport access vlan 10
+ switchport access vlan x
  spanning-tree portfast
 exit
 
 ! Uplink Trunk to Firewall Edge
 interface ethernet 1/0/1
  switchport mode trunk
- switchport trunk allowed vlan 10,20,30,40
+ switchport trunk allowed vlan x,w,u,y
 exit
 
 ! Default Gateway Route
-ip route 0.0.0.0 0.0.0.0 10.10.100.1
+ip route 0.0.0.0 0.0.0.0 10.x.x.x
 exit
