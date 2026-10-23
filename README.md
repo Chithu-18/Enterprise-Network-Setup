@@ -10,8 +10,8 @@ Engineered and deployed a complete IT infrastructure and secure network for an e
 ```mermaid
 flowchart TD
     subgraph WAN["External Networks & Remote Offices"]
-        ISP1["Primary ISP Uplink<br/>198.51.100.0/30"]
-        ISP2["Secondary ISP Backup<br/>203.0.113.0/29"]
+        ISP1["Primary ISP Uplink<br/>198.x.x.x/30"]
+        ISP2["Secondary ISP Backup<br/>203.x.x.x/29"]
         Remote["Remote Office (Country X)<br/>IPsec Gateway"]
     end
 
@@ -29,7 +29,7 @@ flowchart TD
         end
 
         subgraph V40["VLAN 40: Wireless Network"]
-            AP["Wireless Access Point<br/>(10.100.40.0/24)"]
+            AP["Wireless Access Point<br/>(10.x.x.x/24)"]
         end
 
         subgraph ServerInfra["Server & Storage Subnet"]
@@ -42,8 +42,8 @@ flowchart TD
     ISP2 --> FW
     FW <== "Encrypted IPsec Tunnel" ==> Remote
     FW === SW
-    SW --- V10
-    SW --- V40
+    SW --- Vx
+    SW --- Vy
     SW --- ServerInfra
 ```
 
@@ -62,8 +62,8 @@ flowchart TD
 
 | Segment / VLAN | Description | Gateway / Subnet |
 | :--- | :--- | :--- |
-| **VLAN 10** | Production Workstations | `10.100.10.1/24` |
-| **VLAN 40** | Wireless Network (WLAN) | `10.100.40.1/24` |
-| **VLAN 99** | Server & iDRAC Management | `10.100.99.1/24` |
-| **WAN 1** | Primary High-Speed ISP | `198.51.100.10/30` |
-| **WAN 2** | Secondary Backup ISP | `203.0.113.42/29` |
+| **VLAN 10** | Production Workstations | `10.x.x.x/24` |
+| **VLAN 40** | Wireless Network (WLAN) | `10.x.x.x/24` |
+| **VLAN 99** | Server & iDRAC Management | `10.x.x.x/24` |
+| **WAN 1** | Primary High-Speed ISP | `198.x.x.x/30` |
+| **WAN 2** | Secondary Backup ISP | `203.x.x.x/28` |
