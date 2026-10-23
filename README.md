@@ -5,7 +5,7 @@ Engineered and deployed a complete IT infrastructure and secure network for an e
 
 ---
 
-## 🏛️ Network Architecture Diagram
+##  Network Architecture Diagram
 
 ```mermaid
 flowchart TD
@@ -49,7 +49,7 @@ flowchart TD
 
 ---
 
-## 📌 Key Highlights
+##  Key Highlights
 - **Edge Security & Firewall:** Configured FortiGate NGFW with dual-ISP automatic failover and security filtering policies.
 - **Site-to-Site VPN:** Built secure IPsec VPN tunnels connecting the delivery center to international offices (Country X).
 - **Identity & Access Management:** Integrated Windows Active Directory with Fortinet Single Sign-On (FSSO) for role-based security.
@@ -58,7 +58,7 @@ flowchart TD
 
 ---
 
-## 🌐 Logical Network Scheme (Sanitized)
+##  Logical Network Scheme (Sanitized)
 
 | Segment / VLAN | Description | Gateway / Subnet |
 | :--- | :--- | :--- |
