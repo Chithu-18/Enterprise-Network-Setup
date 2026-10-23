@@ -7,13 +7,13 @@ config system interface
     edit "wan1"
         set alias "Primary_ISP"
         set mode static
-        set ip 198.51.100.10 255.255.255.252
+        set ip 198.x.x.x 255.255.255.252
         set role wan
     next
     edit "wan2"
         set alias "Backup_ISP"
         set mode static
-        set ip 203.0.113.42 255.255.255.248
+        set ip 203.x.x.x 255.255.255.240
         set role wan
     next
 end
@@ -25,6 +25,6 @@ config vpn ipsec phase1-interface
         set peertype any
         set proposal aes256-sha256
         set dhgrp 14
-        set remote-gw 198.51.100.50
+        set remote-gw 198.x.x.x
     next
 end
