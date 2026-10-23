@@ -24,11 +24,11 @@ flowchart TD
     end
 
     subgraph Internal["Internal Network Segments"]
-        subgraph V10["VLAN 10: Production LAN"]
-            Clients["Workstations & Laptops<br/>• Microsoft Entra ID Joined<br/>• Standard User (Least Privilege)<br/>• Full Disk Encryption<br/>(10.100.10.0/24)"]
+        subgraph Vx["VLAN x: Production LAN"]
+            Clients["Workstations & Laptops<br/>• Microsoft Entra ID Joined<br/>• Standard User (Least Privilege)<br/>• Full Disk Encryption<br/>(10.x.x.x/24)"]
         end
 
-        subgraph V40["VLAN 40: Wireless Network"]
+        subgraph Vy["VLAN y: Wireless Network"]
             AP["Wireless Access Point<br/>(10.x.x.x/24)"]
         end
 
@@ -62,8 +62,8 @@ flowchart TD
 
 | Segment / VLAN | Description | Gateway / Subnet |
 | :--- | :--- | :--- |
-| **VLAN 10** | Production Workstations | `10.x.x.x/24` |
-| **VLAN 40** | Wireless Network (WLAN) | `10.x.x.x/24` |
-| **VLAN 99** | Server & iDRAC Management | `10.x.x.x/24` |
+| **VLAN x** | Production Workstations | `10.x.x.x/24` |
+| **VLAN y** | Wireless Network (WLAN) | `10.x.x.x/24` |
+| **VLAN A** | Server & iDRAC Management | `10.x.x.x/24` |
 | **WAN 1** | Primary High-Speed ISP | `198.x.x.x/30` |
 | **WAN 2** | Secondary Backup ISP | `203.x.x.x/28` |
