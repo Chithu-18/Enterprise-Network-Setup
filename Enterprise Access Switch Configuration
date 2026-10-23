@@ -1,0 +1,28 @@
+! ========================================================
+! Enterprise Access Switch Configuration Template
+! Role: VLAN Segmentation & Workstation Access
+! ========================================================
+
+configure terminal
+
+! Management Interface
+interface vlan 1
+ ip address 10.10.100.10 255.255.255.0
+exit
+
+! Workstation Ports (VLAN 10)
+interface range ethernet 1/0/2 - 24
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+exit
+
+! Uplink Trunk to Firewall Edge
+interface ethernet 1/0/1
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,40
+exit
+
+! Default Gateway Route
+ip route 0.0.0.0 0.0.0.0 10.10.100.1
+exit
